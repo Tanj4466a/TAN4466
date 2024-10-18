@@ -1,19 +1,23 @@
 <script>
-    // import Comp1 from "./lib/Comp1.svelte";
-    // import Comp2 from "./lib/Comp2.svelte";
-    // import Comp3 from "./lib/Comp3.svelte";
+     import Comp1 from "./lib/Comp1.svelte";
+     import Comp2 from "./lib/Comp2.svelte";
+     import Comp3 from "./lib/Comp3.svelte";
+     import Comp4 from "./lib/Comp4.svelte";
+     import Comp5 from "./lib/Comp5.svelte";
     // import TopMenu from "./lib/TopMenu.svelte";
   
     // import DetectMessage from "./lib/Detector.svelte";
   
     //Массив объектов, содержащий ссылки на 3 компонента
-    // const options = [
-    //   { component: Comp1 },
-    //   { component: Comp2 },
-    //   { component: Comp3 },
-    // ];
+    const options = [
+      { component: Comp1 },
+      { component: Comp2 },
+      { component: Comp3 },
+      { component: Comp4 },
+      { component: Comp5 },
+    ];
   
-    // let selected = options[0]; //компонент по умолчанию
+    let selected = options[0]; //компонент по умолчанию
     // let active_item = 0;
   
     // /**
@@ -44,7 +48,9 @@
     // }
   
     // let clicked = false;
-   
+    function onclik (id){
+      selected=options[id]
+    }
 
   </script>
   
@@ -52,28 +58,28 @@
     <div class="holy-grail">
       <header>
         <nav>
-            <div class="hg__header">МЕНЮ</div>
-            <div class="hg__header">ПОГОДА</div>
-            <div class="hg__header">КУРС РУБЛЯ</div>
+            <div class='btn' on:click={()=>onclik(0)} >МЕНЮ</div>
+            <div class='btn' on:click= {()=>onclik(1)} >ПОГОДА</div>
+            <div class='btn' on:click= {()=>onclik(2)} >КУРС РУБЛЯ</div>
+            <div class='btn' on:click= {()=>onclik(3)} >НОВОСТИ</div>
+            <div class='btn' on:click= {()=>onclik(4)} >ПРОГРАММА ТЕЛЕПЕРЕДАЧ</div>
           
         </nav>
       </header>
   
       <div class="container">
         <div class="left-sidebar">
-          <h2>Левый сайдбар</h2>
-          <p>Здесь может быть реклама, новости или дополнительные пункты меню</p>
+          <h2>Счастье быть дома</h2>
+          <p></p>
         </div>
   
         <div class="main-content">
-          <h1>Основной контент</h1>
   
           <!-- Динамические компоненты -->
-          <!-- <svelte:component
+          <svelte:component
             this={selected.component}
-            app_function={SendMessage}
           />
-   -->
+  
         </div>
         <div class="right-sidebar">
           <h2>Правый сайдбар </h2>
@@ -114,6 +120,20 @@
       text-align: center;
     }
   
+  .btn{
+    cursor: pointer;
+    background-color: rgb(225, 240, 16);
+   border: none;
+   color: rgb(37, 36, 126); 
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;border-radius: 12px;
+   font-size: 20px;
+   font-style: Georgia;
+   font-family: sans-serif;
+  }
     .container {
       display: flex;
       flex-wrap: wrap;
