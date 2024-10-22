@@ -198,7 +198,7 @@
       flex: 1;
     }
   }
-
+  
   /* Перенесен в TopMenu */
   /* @media (max-width: 480px) {
     header nav ul {
